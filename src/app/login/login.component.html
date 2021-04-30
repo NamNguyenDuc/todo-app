@@ -1,0 +1,16 @@
+<div class="container form-login">
+  <h2>{{ 'LOGIN.LOGIN' | translate}}</h2>
+  <form [formGroup]="formLogin" class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>{{ 'LOGIN.USERNAME' | translate}}</mat-label>
+      <input matInput [placeholder]="'LOGIN.PLACEHOLDER_USERNAME' | translate" formControlName="username">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>{{ 'LOGIN.PASSWORD' | translate}}</mat-label>
+      <input matInput [placeholder]="'LOGIN.PLACEHOLDER_PASSWORD' | translate" type="password" formControlName="password">
+    </mat-form-field>
+
+    <button class="w-100" mat-raised-button color="primary" (click)="submit()">{{ 'LOGIN.LOGIN' | translate}}</button>
+  </form>
+</div>

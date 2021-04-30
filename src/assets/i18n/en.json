@@ -1,0 +1,9 @@
+{
+  "LOGIN": {
+    "LOGIN": "Login",
+    "USERNAME": "Username",
+    "PLACEHOLDER_USERNAME": "Username",
+    "PASSWORD": "Password",
+    "PLACEHOLDER_PASSWORD": "Password"
+  }
+}
