@@ -9,6 +9,8 @@ import {LoginComponent} from './login.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatSelectModule} from '@angular/material/select';
+import { RegisterComponent } from './register/register.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 const routes: Routes = [
   {
@@ -25,7 +27,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     LoginComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    RegisterComponent
   ],
   exports: [
     LoginComponent
@@ -40,6 +43,7 @@ const routes: Routes = [
     MatButtonModule,
     TranslateModule,
     MatSelectModule,
+    MatDialogModule,
   ]
 })
 export class LoginModule {

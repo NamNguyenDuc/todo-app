@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {AuthGuard} from './service/auth.guard';
 
 const routes: Routes = [
   {
@@ -8,10 +9,11 @@ const routes: Routes = [
   },
   {
     path: 'todo-list',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./todo-list/todo-list.module').then(m => m.TodoListModule)
   },
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: '**', redirectTo: 'login', pathMatch: 'full'},
+  {path: '', redirectTo: 'todo-list', pathMatch: 'full'},
+  {path: '**', redirectTo: 'todo-list', pathMatch: 'full'},
 ];
 
 @NgModule({

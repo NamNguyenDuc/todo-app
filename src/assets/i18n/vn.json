@@ -1,0 +1,42 @@
+{
+  "COMMON": {
+    "LOG_IN": "Đăng nhập",
+    "LOG_OUT": "Đăng xuất",
+    "NAME": "Tên",
+    "PASSWORD": "Mật khẩu",
+    "PASSWORD_CONFIRMATION": "Nhập lại mật khẩu",
+    "EMAIL": "Email",
+    "SIGN_UP": "Đăng kí",
+    "FORGOTTEN_PASSWORD": "Quên mật khẩu",
+    "CREATE_NEW_ACCOUNT": "Tạo tài khoản mới",
+    "CANCEL": "Hủy",
+    "RESET_PASSWORD": "Đặt lại mật khẩu",
+    "CONFIRM": "Xác nhận",
+    "IS_REQUIRED": "không được bỏ trống",
+    "MAX_LENGTH": "không được vượt quá {{max_length}} kí tự",
+    "MIN_LENGTH": "ít nhất {{min_length}} ký tự",
+    "IS_INVALIDATE": "không đúng định dạng",
+    "PASSWORD_NOT_MATCH": "không khớp",
+    "CHANGE_PASSWORD": "Đổi mật khẩu"
+  },
+  "SIGN_UP": {
+    "SUCCESS": "Đăng kí thành công",
+    "ERROR": "Đăng kí thất bại"
+  },
+  "LOG_IN": {
+    "SUCCESS": "Đăng nhập thành công",
+    "ERROR": "Đăng nhập thất bại"
+  },
+  "FORGOT_PASSWORD": {
+    "SUCCESS": "Thay đổi mật khẩu thành công",
+    "ERROR": "Thay đổi mật khẩu thất bại",
+    "VERIFY_CODE": "Verify code",
+    "NEW_PASSWORD": "Mật khẩu mới",
+    "CONFIRM_PASSWORD": "Nhập lại mật khẩu",
+    "SEND": "Gửi",
+    "DESCRIPTION_A": "Một mã xác minh đã được gửi đến thư của bạn. Vui lòng kiểm tra hộp thư đến của bạn để lấy ({{value}} giây)",
+    "DESCRIPTION": "Một mã xác minh đã được gửi đến thư của bạn. Vui lòng kiểm tra hộp thư đến của bạn để lấy",
+    "DESCRIPTION_ERROR": "Your verify code is expired. Please click to \"Resend new verify code\"",
+    "RESEND_NEW_VERIFY_CODE": "Resend new verify code"
+  }
+}
