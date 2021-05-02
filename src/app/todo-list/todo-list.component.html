@@ -8,7 +8,20 @@
     [cdkDropListConnectedTo]="[doneList]"
     class="example-list"
     (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let item of todo" cdkDrag (click)="detailTodo(item)">{{item}}</div>
+    <div class="example-box" *ngFor="let item of todo" cdkDrag>
+      <div class="content-todo">
+        <div><a class="btn btn-link" (click)="detail(item)">{{item.title}}</a></div>
+        <div>{{item.description}}</div>
+      </div>
+      <div class="action-todo">
+        <button class="mr-3" mat-mini-fab color="primary">
+          <mat-icon>create</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -22,6 +35,19 @@
     [cdkDropListConnectedTo]="[todoList]"
     class="example-list"
     (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+    <div class="example-box" *ngFor="let item of done" cdkDrag>
+      <div class="content-todo">
+        <div><a class="btn btn-link" (click)="detail(item)">{{item.title}}</a></div>
+        <div>{{item.description}}</div>
+      </div>
+      <div class="action-todo">
+        <button class="mr-3" mat-mini-fab color="primary">
+          <mat-icon>create</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
   </div>
 </div>

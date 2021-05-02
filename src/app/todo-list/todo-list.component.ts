@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import {HttpClient} from '@angular/common/http';
+import {DetailComponent} from './detail/detail.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,23 +10,14 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
-  todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
+  todo: any = [];
+  done: any = [];
 
-  done = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-  ];
+  data: any;
 
   constructor(
     private http: HttpClient,
+    public dialog: MatDialog,
   ) {
   }
 
@@ -35,10 +28,13 @@ export class TodoListComponent implements OnInit {
   getDataTodo(): void {
     this.http.get('https://608be4779f42b20017c3d146.mockapi.io/api/v1/tasks').subscribe(res => {
       console.log(res);
+      if (res) {
+        this.todo = res;
+      }
     });
   }
 
-  drop(event: CdkDragDrop<string[]>): void {
+  drop(event: CdkDragDrop<any[]>): void {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -49,8 +45,13 @@ export class TodoListComponent implements OnInit {
     }
   }
 
-  detailTodo(item: string): void {
-    console.log(item);
+  detail(item: object): void {
+    const dialogRef = this.dialog.open(DetailComponent, {width: '250px', data: item, disableClose: true});
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        return;
+      }
+    });
   }
 
 }
