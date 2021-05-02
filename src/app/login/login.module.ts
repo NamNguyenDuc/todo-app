@@ -9,42 +9,42 @@ import {LoginComponent} from './login.component';
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatSelectModule} from '@angular/material/select';
-import { RegisterComponent } from './register/register.component';
+import {RegisterComponent} from './register/register.component';
 import {MatDialogModule} from '@angular/material/dialog';
 
 const routes: Routes = [
-  {
-    path: '',
-    children: [
-      {
+    {
         path: '',
-        component: LoginComponent,
-      }
-    ]
-  }
+        children: [
+            {
+                path: '',
+                component: LoginComponent,
+            }
+        ]
+    }
 ];
 
 @NgModule({
-  declarations: [
-    LoginComponent,
-    ForgotPasswordComponent,
-    RegisterComponent
-  ],
-  exports: [
-    LoginComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forChild(routes),
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    TranslateModule,
-    MatSelectModule,
-    MatDialogModule,
-  ]
+    declarations: [
+        LoginComponent,
+        ForgotPasswordComponent,
+        RegisterComponent
+    ],
+    exports: [
+        LoginComponent
+    ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule.forChild(routes),
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        TranslateModule,
+        MatSelectModule,
+        MatDialogModule,
+    ]
 })
 export class LoginModule {
 }

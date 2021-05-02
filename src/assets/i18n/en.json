@@ -1,42 +1,45 @@
 {
-  "COMMON": {
-    "LOG_IN": "Log In",
-    "LOG_OUT": "Log Out",
-    "NAME": "Name",
-    "PASSWORD": "Password",
-    "PASSWORD_CONFIRMATION": "Password confirmation",
-    "EMAIL": "Email",
-    "SIGN_UP": "Sign Up",
-    "FORGOTTEN_PASSWORD": "Forgotten password",
-    "CREATE_NEW_ACCOUNT": "Create new account",
-    "CANCEL": "Cancel",
-    "RESET_PASSWORD": "Reset password",
-    "CONFIRM": "Confirm",
-    "IS_REQUIRED": "is required",
-    "MAX_LENGTH": "does not exceed {{max_length}} characters",
-    "MIN_LENGTH": "at least {{min_length}} characters",
-    "IS_INVALIDATE": "is invalidate",
-    "PASSWORD_NOT_MATCH": "Password do not match",
-    "CHANGE_PASSWORD": "Change password"
-  },
-  "SIGN_UP": {
-    "SUCCESS": "Sign Up success",
-    "ERROR": "Sign Up error"
-  },
-  "LOG_IN": {
-    "SUCCESS": "Log In success",
-    "ERROR": "Log In error"
-  },
-  "FORGOT_PASSWORD": {
-    "SUCCESS": "Change pass success",
-    "ERROR": "Change pass error",
-    "VERIFY_CODE": "Verify code",
-    "NEW_PASSWORD": "New password",
-    "CONFIRM_PASSWORD": "Confirm password",
-    "SEND": "Send",
-    "DESCRIPTION_A": "A verify code was sent to your mail. Please check your mail inbox to get its ({{value}}s)",
-    "DESCRIPTION": "A verify code was sent to your mail. Please check your mail inbox to get its",
-    "DESCRIPTION_ERROR": "Your verify code is expired. Please click to \"Resend new verify code\"",
-    "RESEND_NEW_VERIFY_CODE": "Resend new verify code"
-  }
+    "COMMON": {
+        "LOG_IN": "Log In",
+        "LOG_OUT": "Log Out",
+        "NAME": "Name",
+        "PASSWORD": "Password",
+        "PASSWORD_CONFIRMATION": "Password confirmation",
+        "EMAIL": "Email",
+        "SIGN_UP": "Sign Up",
+        "FORGOTTEN_PASSWORD": "Forgotten password",
+        "CREATE_NEW_ACCOUNT": "Create new account",
+        "CANCEL": "Cancel",
+        "RESET_PASSWORD": "Reset password",
+        "CONFIRM": "Confirm",
+        "IS_REQUIRED": "is required",
+        "MAX_LENGTH": "does not exceed {{max_length}} characters",
+        "MIN_LENGTH": "at least {{min_length}} characters",
+        "IS_INVALIDATE": "is invalidate",
+        "PASSWORD_NOT_MATCH": "Password do not match",
+        "CHANGE_PASSWORD": "Change password"
+    },
+    "SIGN_UP": {
+        "SUCCESS": "Sign Up success",
+        "ERROR": "Sign Up error"
+    },
+    "LOG_IN": {
+        "SUCCESS": "Log In success",
+        "ERROR": "Log In error"
+    },
+    "FORGOT_PASSWORD": {
+        "SUCCESS": "Change pass success",
+        "ERROR": "Change pass error",
+        "VERIFY_CODE": "Verify code",
+        "NEW_PASSWORD": "New password",
+        "CONFIRM_PASSWORD": "Confirm password",
+        "SEND": "Send",
+        "DESCRIPTION_A": "A verify code was sent to your mail. Please check your mail inbox to get its ({{value}}s)",
+        "DESCRIPTION": "A verify code was sent to your mail. Please check your mail inbox to get its",
+        "DESCRIPTION_ERROR": "Your verify code is expired. Please click to \"Resend new verify code\"",
+        "RESEND_NEW_VERIFY_CODE": "Resend new verify code"
+    },
+    "TODO_LIST": {
+        "TITLE": "TODO LIST"
+    }
 }

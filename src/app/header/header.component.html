@@ -1,45 +1,47 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light py-1">
-  <a class="navbar-brand" href="#">Todo App</a>
-  <div class="collapse navbar-collapse">
-    <ul *ngIf="statusLogin" class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Todo-list <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-    <ul *ngIf="!statusLogin" class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/login">{{ 'COMMON.LOG_IN' | translate}} <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-    <div class="navbar-text select-language mr-3">
-      <mat-select [(ngModel)]="currentLanguage" (ngModelChange)="changeLanguage($event)">
-        <mat-option *ngFor="let language of languages" [value]="language.code">
-          {{language.name}}
-        </mat-option>
-      </mat-select>
-    </div>
-    <div *ngIf="statusLogin" class="detail-profile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      <span>Hi, </span>{{userProfile?.name}}
-      <img class="profile-logo" src="./assets/img/users/default.jpg" alt="avatar"/>
-      <div class="dropdown-menu dropdown-menu-right p-0 menu-user">
-        <div class="menu-profile">
-          <div class="info-user">
-            <div class="row">
-              <div class="col-3">
-                <img class="avatar-user" src="./assets/img/users/default.jpg" alt="avatar"/>
-              </div>
-              <div class="col-9 info">
-                <p class="mb-2">{{userProfile?.name}}</p>
-                <p class="mb-0 email">{{userProfile?.email}}</p>
-              </div>
-            </div>
-          </div>
-          <div class="action-user">
-            <button mat-raised-button>{{ 'COMMON.CHANGE_PASSWORD' | translate}}</button>
-            <button mat-raised-button (click)="logout()">{{ 'COMMON.LOG_OUT' | translate}}</button>
-          </div>
+    <a class="navbar-brand" href="#">Todo App</a>
+    <div class="collapse navbar-collapse">
+        <ul *ngIf="statusLogin" class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Todo-list <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <ul *ngIf="!statusLogin" class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/login">{{ 'COMMON.LOG_IN' | translate}} <span
+                    class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <div class="navbar-text select-language mr-3">
+            <mat-select [(ngModel)]="currentLanguage" (ngModelChange)="changeLanguage($event)">
+                <mat-option *ngFor="let language of languages" [value]="language.code">
+                    {{language.name}}
+                </mat-option>
+            </mat-select>
         </div>
-      </div>
+        <div *ngIf="statusLogin" class="detail-profile" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="true">
+            <span>Hi, </span>{{userProfile?.name}}
+            <img class="profile-logo" src="./assets/img/users/default.jpg" alt="avatar"/>
+            <div class="dropdown-menu dropdown-menu-right p-0 menu-user">
+                <div class="menu-profile">
+                    <div class="info-user">
+                        <div class="row">
+                            <div class="col-3">
+                                <img class="avatar-user" src="./assets/img/users/default.jpg" alt="avatar"/>
+                            </div>
+                            <div class="col-9 info">
+                                <p class="mb-2">{{userProfile?.name}}</p>
+                                <p class="mb-0 email">{{userProfile?.email}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-user">
+                        <button mat-raised-button>{{ 'COMMON.CHANGE_PASSWORD' | translate}}</button>
+                        <button mat-raised-button (click)="logout()">{{ 'COMMON.LOG_OUT' | translate}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </nav>

@@ -10,39 +10,39 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 
 const routes: Routes = [
-  {
-    path: '',
-    children: [
-      {
+    {
         path: '',
-        redirectTo: 'list',
-        pathMatch: 'full'
-      },
-      {
-        path: 'list',
-        component: TodoListComponent,
-      }
-    ]
-  }
+        children: [
+            {
+                path: '',
+                redirectTo: 'list',
+                pathMatch: 'full'
+            },
+            {
+                path: 'list',
+                component: TodoListComponent,
+            }
+        ]
+    }
 ];
 
 @NgModule({
-  declarations: [
-    TodoListComponent,
-    DetailComponent
-  ],
-  exports: [
-    TodoListComponent
-  ],
-  imports: [
-    CommonModule,
-    DragDropModule,
-    TranslateModule,
-    RouterModule.forChild(routes),
-    MatDialogModule,
-    MatButtonModule,
-    MatIconModule,
-  ]
+    declarations: [
+        TodoListComponent,
+        DetailComponent
+    ],
+    exports: [
+        TodoListComponent
+    ],
+    imports: [
+        CommonModule,
+        DragDropModule,
+        TranslateModule,
+        RouterModule.forChild(routes),
+        MatDialogModule,
+        MatButtonModule,
+        MatIconModule,
+    ]
 })
 export class TodoListModule {
 }

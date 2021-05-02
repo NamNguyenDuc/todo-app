@@ -1,61 +1,73 @@
 <h2 mat-dialog-title class="d-flex justify-content-center">{{ 'COMMON.SIGN_UP' | translate}}</h2>
 <mat-dialog-content class="mat-typography">
-  <div class="form">
-    <div class="content">
-      <form
-        [formGroup]="formRegister"
-        class="example-form"
-      >
-        <mat-form-field class="example-full-width">
-          <input
-            matInput
-            [placeholder]="'COMMON.NAME' | translate"
-            formControlName="name"
-          >
-          <mat-error>{{ ('COMMON.NAME' | translate) + ' ' + (getError('name') | translate:{max_length: 255}) }}</mat-error>
-        </mat-form-field>
+    <div class="form">
+        <div class="content">
+            <form
+                [formGroup]="formRegister"
+                class="example-form"
+            >
+                <mat-form-field class="example-full-width">
+                    <label class="w-100">
+                        <input
+                            matInput
+                            [placeholder]="'COMMON.NAME' | translate"
+                            formControlName="name"
+                        >
+                    </label>
+                    <mat-error>{{ ('COMMON.NAME' | translate) + ' ' + (getError('name') | translate:{max_length: 255}) }}</mat-error>
+                </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-          <input
-            matInput
-            [placeholder]="'COMMON.EMAIL' | translate"
-            formControlName="email"
-          >
-          <mat-error>{{ ('COMMON.EMAIL' | translate) + ' ' + (getError('email') | translate:{max_length: 255}) }}</mat-error>
-        </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <label class="w-100">
+                        <input
+                            matInput
+                            [placeholder]="'COMMON.EMAIL' | translate"
+                            formControlName="email"
+                        >
+                    </label>
+                    <mat-error>{{ ('COMMON.EMAIL' | translate) + ' ' + (getError('email') | translate:{max_length: 255}) }}</mat-error>
+                </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-          <input
-            matInput
-            [placeholder]="'COMMON.PASSWORD' | translate"
-            type="password"
-            formControlName="password"
-          >
-          <mat-error>{{ ('COMMON.PASSWORD' | translate) + ' ' + (getError('password') | translate:{max_length: 20, min_length: 4}) }}</mat-error>
-        </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <label class="w-100">
+                        <input
+                            matInput
+                            [placeholder]="'COMMON.PASSWORD' | translate"
+                            type="password"
+                            formControlName="password"
+                        >
+                    </label>
+                    <mat-error>{{ ('COMMON.PASSWORD' | translate) + ' ' + (getError('password') | translate:{
+                        max_length: 20,
+                        min_length: 4
+                    }) }}</mat-error>
+                </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-          <input
-            matInput
-            [placeholder]="'COMMON.PASSWORD_CONFIRMATION' | translate"
-            type="password"
-            formControlName="password_confirmation"
-          >
-          <mat-error>{{ ('COMMON.PASSWORD_CONFIRMATION' | translate) + ' ' + (getError('password_confirmation') | translate:{max_length: 20, min_length: 4}) }}</mat-error>
-        </mat-form-field>
-
-
-      </form>
+                <mat-form-field class="example-full-width">
+                    <label class="w-100">
+                        <input
+                            matInput
+                            [placeholder]="'COMMON.PASSWORD_CONFIRMATION' | translate"
+                            type="password"
+                            formControlName="password_confirmation"
+                        >
+                    </label>
+                    <mat-error>{{ ('COMMON.PASSWORD_CONFIRMATION' | translate) + ' ' + (getError('password_confirmation') | translate:{
+                        max_length: 20,
+                        min_length: 4
+                    }) }}</mat-error>
+                </mat-form-field>
+            </form>
+        </div>
     </div>
-  </div>
 </mat-dialog-content>
 <mat-dialog-actions class="justify-content-end">
-  <button mat-button mat-dialog-close>{{ 'COMMON.CANCEL' | translate}}</button>
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="submit()"
-  >
-    {{ 'COMMON.SIGN_UP' | translate}}
-  </button>
+    <button mat-button mat-dialog-close>{{ 'COMMON.CANCEL' | translate}}</button>
+    <button
+        mat-raised-button
+        color="primary"
+        (click)="submit()"
+    >
+        {{ 'COMMON.SIGN_UP' | translate}}
+    </button>
 </mat-dialog-actions>

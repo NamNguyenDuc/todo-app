@@ -1,54 +1,61 @@
 <div class="form">
-  <div class="content">
-    <form
-      [formGroup]="formLogin"
-      class="example-form border-bottom"
-    >
-      <mat-form-field class="example-full-width">
-        <input
-          matInput
-          [placeholder]="'COMMON.EMAIL' | translate"
-          formControlName="email"
+    <div class="content">
+        <form
+            [formGroup]="formLogin"
+            class="example-form border-bottom"
         >
-        <mat-error>{{ ('COMMON.EMAIL' | translate) + ' ' + (getError('email') | translate:{max_length: 255}) }}</mat-error>
-      </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <label class="w-100">
+                    <input
+                        matInput
+                        [placeholder]="'COMMON.EMAIL' | translate"
+                        formControlName="email"
+                    >
+                </label>
+                <mat-error>{{ ('COMMON.EMAIL' | translate) + ' ' + (getError('email') | translate:{max_length: 255}) }}</mat-error>
+            </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <input
-          matInput
-          [placeholder]="'COMMON.PASSWORD' | translate"
-          type="password"
-          formControlName="password"
-        >
-        <mat-error>{{ ('COMMON.PASSWORD' | translate) + ' ' + (getError('password') | translate:{max_length: 20, min_length: 4}) }}</mat-error>
-      </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <label class="w-100">
+                    <input
+                        matInput
+                        [placeholder]="'COMMON.PASSWORD' | translate"
+                        type="password"
+                        formControlName="password"
+                    >
+                </label>
+                <mat-error>{{ ('COMMON.PASSWORD' | translate) + ' ' + (getError('password') | translate:{
+                    max_length: 20,
+                    min_length: 4
+                }) }}</mat-error>
+            </mat-form-field>
 
-      <button
-        class="w-100 mt-2"
-        mat-raised-button
-        color="primary"
-        (click)="submit()"
-      >
-        {{ 'COMMON.LOG_IN' | translate}}
-      </button>
-      <div class="w-100 d-flex justify-content-center">
-        <a
-          class="btn btn-link mt-3 mb-2"
-          (click)="forgotPassword()"
-        >
-          {{ 'COMMON.FORGOTTEN_PASSWORD' | translate}}?
-        </a>
-      </div>
-    </form>
-    <div class="w-100 d-flex justify-content-center">
-      <button
-        class="mt-3"
-        mat-raised-button
-        color="basic"
-        (click)="register()"
-      >
-        {{ 'COMMON.CREATE_NEW_ACCOUNT' | translate}}
-      </button>
+            <button
+                class="w-100 mt-2"
+                mat-raised-button
+                color="primary"
+                (click)="submit()"
+            >
+                {{ 'COMMON.LOG_IN' | translate}}
+            </button>
+            <div class="w-100 d-flex justify-content-center">
+                <a
+                    class="btn btn-link mt-3 mb-2"
+                    (click)="forgotPassword()"
+                >
+                    {{ 'COMMON.FORGOTTEN_PASSWORD' | translate}}?
+                </a>
+            </div>
+        </form>
+        <div class="w-100 d-flex justify-content-center">
+            <button
+                class="mt-3"
+                mat-raised-button
+                color="basic"
+                (click)="register()"
+            >
+                {{ 'COMMON.CREATE_NEW_ACCOUNT' | translate}}
+            </button>
+        </div>
     </div>
-  </div>
 </div>
