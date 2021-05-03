@@ -64,7 +64,7 @@ export class TodoListComponent implements OnInit {
     }
 
     detail(item: object): void {
-        const dialogRef = this.dialog.open(DetailComponent, {width: '30%', data: item, disableClose: true});
+        const dialogRef = this.dialog.open(DetailComponent, {minWidth: '30%', maxWidth: '60%', data: item, disableClose: true});
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
                 return;

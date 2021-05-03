@@ -1,54 +1,57 @@
-<h2 mat-dialog-title>{{data?.title}}</h2>
+<h2 mat-dialog-title class="text-break">{{data?.title}}</h2>
 <mat-dialog-content class="mat-typography">
-    <div class="row-item" *ngFor="let item of dataDetail">
-        <mat-checkbox *ngIf="!showFormEdit" class="item-check-box" [(ngModel)]="item.status" (ngModelChange)="changeStatus(item, $event)"
-                      [ngClass]="{'done': item.status}" color="primary">{{item?.title}}</mat-checkbox>
-        <div *ngIf="!showFormEdit" class="action-detail">
-            <button class="btn btn-outline-secondary" mat-icon-button color="default" (click)="editItem()">
-                <mat-icon>create</mat-icon>
-            </button>
-            <button class="btn btn-outline-secondary" mat-icon-button color="warn">
-                <mat-icon>delete</mat-icon>
-            </button>
+    <div *ngIf="!loading" class="pb-3">
+        <div *ngFor="let item of dataDetail">
+            <div class="row-item" *ngIf="!showFormEdit || idEdit !== item.id">
+                <mat-checkbox class="item-check-box check-box" [(ngModel)]="item.status"
+                              (ngModelChange)="changeStatus(item, $event)"
+                              [ngClass]="{'done': item.status}" color="primary">{{item?.title}}</mat-checkbox>
+                <div class="action-detail">
+                    <button class="btn btn-outline-secondary" mat-icon-button color="default" (click)="editItem(item)">
+                        <mat-icon>create</mat-icon>
+                    </button>
+                    <button class="btn btn-outline-secondary" mat-icon-button color="warn">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="showFormEdit && idEdit === item.id" class="add-item w-100">
+                <form class="w-100" [formGroup]="formEdit">
+                    <mat-form-field class="example-full-width w-100">
+                        <label class="w-100">
+                                <textarea
+                                    matInput
+                                    formControlName="title"
+                                    cdkTextareaAutosize
+                                    cdkAutosizeMaxRows="3"
+                                    cdkAutosizeMinRows="1"
+                                ></textarea>
+                        </label>
+                        <!--                                <mat-error>{{ ('COMMON.ADD_ITEM' | translate) + ' ' + (getError('title') | translate:{max_length: 1000}) }}</mat-error>-->
+                    </mat-form-field>
+                    <button
+                        class="btn mr-3"
+                        mat-flat-button
+                        color="primary"
+                        (click)="edit(item)"
+                    >
+                        {{ 'COMMON.SAVE' | translate}}
+                    </button>
+                    <button
+                        class="btn"
+                        mat-button
+                        color="default"
+                        (click)="closeFormEdit()"
+                    >
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </form>
+            </div>
         </div>
-<!--        <div *ngIf="showFormEdit" class="add-item">-->
-<!--            <form class="w-100" [formGroup]="formEdit">-->
-<!--                <mat-form-field class="example-full-width w-100 mb-2">-->
-<!--                    <label class="w-100">-->
-<!--                    <textarea-->
-<!--                        matInput-->
-<!--                        [placeholder]="'COMMON.ADD_ITEM' | translate"-->
-<!--                        formControlName="title"-->
-<!--                        cdkTextareaAutosize-->
-<!--                        cdkAutosizeMaxRows="3"-->
-<!--                        cdkAutosizeMinRows="1"-->
-<!--                    ></textarea>-->
-<!--                    </label>-->
-<!--                    <mat-error>{{ ('COMMON.ADD_ITEM' | translate) + ' ' + (getError('title') | translate:{max_length: 1000}) }}</mat-error>-->
-<!--                </mat-form-field>-->
-<!--                <button-->
-<!--                    class="btn mr-3"-->
-<!--                    mat-flat-button-->
-<!--                    color="primary"-->
-<!--                    (click)="edit()"-->
-<!--                >-->
-<!--                    {{ 'COMMON.ADD' | translate}}-->
-<!--                </button>-->
-<!--                <button-->
-<!--                    class="btn"-->
-<!--                    mat-button-->
-<!--                    color="default"-->
-<!--                    (click)="closeFormEdit()"-->
-<!--                >-->
-<!--                    <mat-icon>close</mat-icon>-->
-<!--                </button>-->
-<!--            </form>-->
-<!--        </div>-->
-    </div>
-    <div *ngIf="showFormAdd" class="add-item">
-        <form class="w-100" [formGroup]="formAdd">
-            <mat-form-field class="example-full-width w-100 mb-2">
-                <label class="w-100">
+        <div *ngIf="showFormAdd" class="add-item">
+            <form class="w-100" [formGroup]="formAdd">
+                <mat-form-field class="example-full-width w-100">
+                    <label class="w-100">
                     <textarea
                         matInput
                         [placeholder]="'COMMON.ADD_ITEM' | translate"
@@ -57,36 +60,40 @@
                         cdkAutosizeMaxRows="3"
                         cdkAutosizeMinRows="1"
                     ></textarea>
-                </label>
-                <mat-error>{{ ('COMMON.ADD_ITEM' | translate) + ' ' + (getError('title') | translate:{max_length: 1000}) }}</mat-error>
-            </mat-form-field>
-            <button
-                class="btn mr-3"
-                mat-flat-button
-                color="primary"
-                (click)="add()"
-            >
-                {{ 'COMMON.ADD' | translate}}
-            </button>
-            <button
-                class="btn"
-                mat-button
-                color="default"
-                (click)="closeFormAdd()"
-            >
-                <mat-icon>close</mat-icon>
-            </button>
-        </form>
+                    </label>
+                    <mat-error>{{ ('COMMON.ADD_ITEM' | translate) + ' ' + (getError('title') | translate:{max_length: 1000}) }}</mat-error>
+                </mat-form-field>
+                <button
+                    class="btn mr-3"
+                    mat-flat-button
+                    color="primary"
+                    (click)="add()"
+                >
+                    {{ 'COMMON.ADD' | translate}}
+                </button>
+                <button
+                    class="btn"
+                    mat-button
+                    color="default"
+                    (click)="closeFormAdd()"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </form>
+        </div>
+        <button
+            *ngIf="!showFormAdd"
+            class="btn ml-3"
+            mat-raised-button
+            color="primary"
+            (click)="addItem()"
+        >
+            {{ 'COMMON.ADD_ITEM' | translate }}
+        </button>
     </div>
-    <button
-        *ngIf="!showFormAdd"
-        class="btn"
-        mat-raised-button
-        color="primary"
-        (click)="addItem()"
-    >
-        {{ 'COMMON.ADD_ITEM' | translate }}
-    </button>
+    <div *ngIf="loading" class="box-spinner">
+        <mat-spinner diameter="16"></mat-spinner>
+    </div>
 </mat-dialog-content>
 <mat-dialog-actions class="justify-content-end">
     <button class="btn" mat-button mat-dialog-close>{{ 'COMMON.CANCEL' | translate}}</button>

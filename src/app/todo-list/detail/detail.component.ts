@@ -19,6 +19,9 @@ export class DetailComponent implements OnInit {
     formAdd: FormGroup | any;
     formEdit: FormGroup | any;
 
+    loading = true;
+    idEdit: any;
+
     constructor(
         public dialogRef: MatDialogRef<DetailComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any,
@@ -45,10 +48,12 @@ export class DetailComponent implements OnInit {
     }
 
     getDetail(): any {
+        this.loading = true;
         this.restConnect.get(environment.DETAIL_TODO, true, 'mock', this.data.id).subscribe(res => {
             if (res?.success) {
                 this.dataDetail = res.data;
                 this.cdr.markForCheck();
+                this.loading = false;
             }
         });
     }
@@ -86,6 +91,7 @@ export class DetailComponent implements OnInit {
             this.restConnect.post(environment.ADD_ITEM_DETAIL_TODO, body, true, 'mock', this.data.id).subscribe((res: any) => {
                 if (res?.success) {
                     this.toast.successToastr(this.translate.instant('TODO_LIST.DETAIL.ADD_ITEM_SUCCESS'));
+                    this.formAdd.reset();
                     this.getDetail();
                     this.showFormAdd = false;
                 } else {
@@ -97,23 +103,27 @@ export class DetailComponent implements OnInit {
 
     closeFormAdd(): void {
         this.showFormAdd = false;
+        this.formAdd.reset();
     }
 
-    editItem(): void {
+    editItem(item: any): void {
+        this.formEdit.controls.title.patchValue(item.title);
         this.showFormEdit = true;
+        this.idEdit = item.id;
     }
 
-    edit(): void {
+    edit(item: any): void {
         this.formEdit.markAllAsTouched();
         if (this.formEdit.valid) {
             const body = {
                 title: this.formEdit.controls.title.value,
             };
-            this.restConnect.post(environment.EDIT_ITEM_DETAIL_TODO, body, true, 'mock', this.data.id).subscribe((res: any) => {
+            this.restConnect.put(environment.EDIT_ITEM_DETAIL_TODO, item.id, body, true, 'mock', this.data.id).subscribe((res: any) => {
                 if (res?.success) {
                     this.toast.successToastr(this.translate.instant('TODO_LIST.DETAIL.ADD_ITEM_SUCCESS'));
                     this.getDetail();
-                    this.showFormEdit = false;
+                    this.formEdit.reset();
+                    this.closeFormEdit();
                 } else {
                     this.toast.errorToastr(this.translate.instant('TODO_LIST.DETAIL.ADD_ITEM_ERROR'));
                 }
@@ -123,5 +133,7 @@ export class DetailComponent implements OnInit {
 
     closeFormEdit(): void {
         this.showFormEdit = false;
+        this.idEdit = null;
+        this.formAdd.reset();
     }
 }
