@@ -1,10 +1,20 @@
-<div class="container">
+<div class="container container-todo-list">
     <div class="title-todo">
-        <h1>{{ 'TODO_LIST.TITLE' | translate }}</h1>
+        <h1 class="mb-0">{{ 'TODO_LIST.TITLE' | translate }}</h1>
     </div>
-    <div class="content-todo">
+    <div class="d-flex justify-content-between">
         <div class="example-container">
-            <h2>To do</h2>
+            <div class="d-flex justify-content-between align-items-center py-3">
+                <h2 class="mb-0">{{ 'TODO_LIST.TODO' | translate}}</h2>
+                <button
+                    class="btn"
+                    mat-raised-button
+                    color="primary"
+                    (click)="addTodo()"
+                >
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
 
             <div
                 cdkDropList
@@ -12,17 +22,17 @@
                 [cdkDropListData]="todo"
                 [cdkDropListConnectedTo]="[doneList]"
                 class="example-list"
-                (cdkDropListDropped)="drop($event)">
+                (cdkDropListDropped)="drop($event, 0)">
                 <div class="example-box" *ngFor="let item of todo" cdkDrag>
                     <div class="content-todo">
-                        <div><a class="btn btn-link" (click)="detail(item)">{{item.title}}</a></div>
-                        <div>{{item.description}}</div>
+                        <div><a class="btn btn-link py-0 mb-2" (click)="detail(item)">{{item.title}}</a></div>
+                        <div class="content-todo-description py-0">{{item.description}}</div>
                     </div>
                     <div class="action-todo">
-                        <button class="mr-3" mat-mini-fab color="primary">
+                        <button class="btn btn-outline-secondary" mat-icon-button color="default" (click)="editTodo(item)">
                             <mat-icon>create</mat-icon>
                         </button>
-                        <button mat-mini-fab color="primary">
+                        <button class="btn btn-outline-secondary" mat-icon-button color="warn" (click)="deleteTodo(item)">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </div>
@@ -31,7 +41,17 @@
         </div>
 
         <div class="example-container">
-            <h2>Done</h2>
+            <div class="d-flex justify-content-between align-items-center py-3">
+                <h2 class="mb-0">{{ 'TODO_LIST.DONE' | translate}}</h2>
+                <button
+                    class="btn"
+                    mat-raised-button
+                    color="warn"
+                    (click)="addTodo()"
+                >
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
 
             <div
                 cdkDropList
@@ -39,17 +59,17 @@
                 [cdkDropListData]="done"
                 [cdkDropListConnectedTo]="[todoList]"
                 class="example-list"
-                (cdkDropListDropped)="drop($event)">
+                (cdkDropListDropped)="drop($event, 1)">
                 <div class="example-box" *ngFor="let item of done" cdkDrag>
                     <div class="content-todo">
-                        <div><a class="btn btn-link" (click)="detail(item)">{{item.title}}</a></div>
-                        <div>{{item.description}}</div>
+                        <div><a class="btn btn-link py-0 mb-2" (click)="detail(item)">{{item.title}}</a></div>
+                        <div class="content-todo-description py-0">{{item.description}}</div>
                     </div>
                     <div class="action-todo">
-                        <button class="mr-3" mat-mini-fab color="primary">
+                        <button class="btn btn-outline-secondary" mat-icon-button color="default" (click)="editTodo(item)">
                             <mat-icon>create</mat-icon>
                         </button>
-                        <button mat-mini-fab color="primary">
+                        <button class="btn btn-outline-secondary" mat-icon-button color="warn">
                             <mat-icon>delete</mat-icon>
                         </button>
                     </div>

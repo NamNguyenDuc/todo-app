@@ -1,0 +1,8 @@
+<h2 mat-dialog-title class="d-flex justify-content-center">{{ 'COMMON.CONFIRM_DELETION' | translate}}</h2>
+<mat-dialog-content class="mat-typography">
+    <div class="text-center content-popup">{{ 'COMMON.DELETE.DESCRIPTION'| translate }} <span class="font-weight-bold">{{data.title}}</span>?</div>
+</mat-dialog-content>
+<mat-dialog-actions class="justify-content-end">
+    <button class="btn" mat-button mat-dialog-close>{{ 'COMMON.CANCEL' | translate}}</button>
+    <button class="btn" mat-button color="primary" (click)="onConfirm()">{{ 'COMMON.CONFIRM' | translate}}</button>
+</mat-dialog-actions>

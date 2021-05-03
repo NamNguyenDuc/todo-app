@@ -64,17 +64,29 @@ export class RestConnector {
         }
     }
 
-    getApiUrl(): string {
+    getApiUrl(url?: string): string {
+        if (url && url === 'mock') {
+            return environment.API_URL_MOCK_API;
+        }
         return environment.API_URL;
     }
 
-    public get(url: string, hasAuth: boolean = true): Observable<any> {
-        const fullUrl: string = this.getApiUrl() + url;
+    convertUrlById(url: string, id?: string, twoId?: string): string {
+        if (id && twoId) {
+            return url.toString().replace(':id', id).replace(':twoId', twoId);
+        } else if (id) {
+            return url.toString().replace(':id', id);
+        }
+        return url;
+    }
+
+    public get(url: string, hasAuth: boolean = true, urlSelect?: string, id?: string): Observable<any> {
+        const fullUrl: string = this.getApiUrl(urlSelect) + this.convertUrlById(url, id);
         this.httpOption = this.getHttpOption(hasAuth);
         try {
             return this.httpClient.get<any>(fullUrl, this.httpOption).pipe(
                 map((resp: any) => {
-                    if (!resp.status) {
+                    if (!resp.success) {
                         if (resp.httpCode === 401) {
                             localStorage.clear();
                             this.router.navigateByUrl('/login').then();
@@ -93,14 +105,13 @@ export class RestConnector {
         }
     }
 
-    public post(url: string, data: any, hasAuth: boolean = true): Observable<any> {
-        const fullUrl: string = this.getApiUrl() + url;
-        console.log(fullUrl);
+    public post(url: string, data: any, hasAuth: boolean = true, urlSelect?: string, id?: string): Observable<any> {
+        const fullUrl: string = this.getApiUrl(urlSelect) + this.convertUrlById(url, id);
         this.httpOption = this.getHttpOption(hasAuth);
         try {
             return this.httpClient.post<any>(fullUrl, data, this.httpOption).pipe(
                 map((resp: any) => {
-                    if (!resp.status) {
+                    if (!resp.success) {
                         if (resp.httpCode === 401) {
                             localStorage.clear();
                             this.router.navigateByUrl('/login').then();
@@ -119,13 +130,13 @@ export class RestConnector {
         }
     }
 
-    public put(url: string, data: any, hasAuth: boolean = true): Observable<any> {
-        const fullUrl: string = this.getApiUrl() + url;
+    public put(url: string, id: string, data: any, hasAuth: boolean = true, urlSelect?: string, twoId?: string): Observable<any> {
+        const fullUrl: string = this.getApiUrl(urlSelect) + this.convertUrlById(url, id, twoId);
         this.httpOption = this.getHttpOption(hasAuth);
         try {
             return this.httpClient.put<any>(fullUrl, data, this.httpOption).pipe(
                 map((resp: any) => {
-                    if (!resp.status) {
+                    if (!resp.success) {
                         if (resp.httpCode === 401) {
                             localStorage.clear();
                             this.router.navigateByUrl('/login').then();
@@ -144,13 +155,13 @@ export class RestConnector {
         }
     }
 
-    public delete(url: string, hasAuth: boolean = true): Observable<any> {
-        const fullUrl: string = this.getApiUrl() + url;
+    public delete(url: string, id: string, hasAuth: boolean = true, urlSelect?: string, twoId?: string): Observable<any> {
+        const fullUrl: string = this.getApiUrl(urlSelect) + this.convertUrlById(url, id, twoId);
         this.httpOption = this.getHttpOption(hasAuth);
         try {
             return this.httpClient.delete(fullUrl, this.httpOption).pipe(
                 map((resp: any) => {
-                    if (!resp.status) {
+                    if (!resp.success) {
                         if (resp.httpCode === 401) {
                             localStorage.clear();
                             this.router.navigateByUrl('/login').then();

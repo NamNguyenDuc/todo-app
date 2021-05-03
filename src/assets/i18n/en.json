@@ -17,7 +17,18 @@
         "MIN_LENGTH": "at least {{min_length}} characters",
         "IS_INVALIDATE": "is invalidate",
         "PASSWORD_NOT_MATCH": "Password do not match",
-        "CHANGE_PASSWORD": "Change password"
+        "CHANGE_PASSWORD": "Change password",
+        "ADD": "Add",
+        "SAVE": "Save",
+        "CONFIRM_DELETION": "Confirm deletion",
+        "CLOSE": "Close",
+        "ADD_ITEM": "Add an item",
+
+        "DELETE": {
+            "DESCRIPTION": "Are you sure you want to delete",
+            "SUCCESS": "Delete {{title}} successfully",
+            "ERROR": "Deletion of {{title}} failed"
+        }
     },
     "SIGN_UP": {
         "SUCCESS": "Sign Up success",
@@ -40,6 +51,31 @@
         "RESEND_NEW_VERIFY_CODE": "Resend new verify code"
     },
     "TODO_LIST": {
-        "TITLE": "TODO LIST"
+        "TITLE": "TODO LIST",
+        "TODO": "To do",
+        "DONE": "Done",
+
+        "ADD": {
+            "TITLE": "New Todo",
+            "PLACEHOLDER_ADD": "Enter the todo's name",
+            "SUCCESS": "Add todo success",
+            "ERROR": "Add todo error"
+        },
+
+        "EDIT": {
+            "TITLE": "Edit Todo",
+            "PLACEHOLDER_EDIT": "Edit the todo's name",
+            "SUCCESS": "Edit todo success",
+            "ERROR": "Edit todo error"
+        },
+
+        "DETAIL": {
+            "ADD_ITEM_SUCCESS": "Add an item success",
+            "ADD_ITEM_ERROR": "Add an item failed",
+            "EDIT_ITEM_SUCCESS": "Edit success",
+            "EDIT_ITEM_ERROR": "Edit failed",
+            "DELETE_ITEM_SUCCESS": "Add an item success",
+            "DELETE_ITEM_ERROR": "Delete failed"
+        }
     }
 }

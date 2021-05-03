@@ -17,7 +17,18 @@
         "MIN_LENGTH": "ít nhất {{min_length}} ký tự",
         "IS_INVALIDATE": "không đúng định dạng",
         "PASSWORD_NOT_MATCH": "không khớp",
-        "CHANGE_PASSWORD": "Đổi mật khẩu"
+        "CHANGE_PASSWORD": "Đổi mật khẩu",
+        "ADD": "Thêm mới",
+        "SAVE": "Lưu",
+        "CONFIRM_DELETION": "Xác nhận xóa",
+        "CLOSE": "Đóng",
+        "ADD_ITEM": "Thêm một mục",
+
+        "DELETE": {
+            "DESCRIPTION": "Bạn có chắc muốn xóa",
+            "SUCCESS": "Xóa {{title}} thành công",
+            "ERROR": "Xóa {{title}} không thành công"
+        }
     },
     "SIGN_UP": {
         "SUCCESS": "Đăng kí thành công",
@@ -40,6 +51,31 @@
         "RESEND_NEW_VERIFY_CODE": "Resend new verify code"
     },
     "TODO_LIST": {
-        "TITLE": "TODO LIST"
+        "TITLE": "TODO LIST",
+        "TODO": "Danh dách công việc",
+        "DONE": "Hoàn thành",
+
+        "ADD": {
+            "TITLE": "Thêm công việc mới",
+            "PLACEHOLDER_ADD": "Nhập tên công việc",
+            "SUCCESS": "Thêm mới công việc thành công",
+            "ERROR": "Thêm mới công việc thất bại"
+        },
+
+        "EDIT": {
+            "TITLE": "Chỉnh sửa công việc",
+            "PLACEHOLDER_EDIT": "Chỉnh sửa tên việc làm",
+            "SUCCESS": "Chỉnh sửa công việc thành công",
+            "ERROR": "Chỉnh sửa công việc thất bại"
+        },
+
+        "DETAIL": {
+            "ADD_ITEM_SUCCESS": "Thêm mới một mục thành công",
+            "ADD_ITEM_ERROR": "Thêm mới một mục thất bại",
+            "EDIT_ITEM_SUCCESS": "Chỉnh sửa thành công",
+            "EDIT_ITEM_ERROR": "Chỉnh sửa thất bại",
+            "DELETE_ITEM_SUCCESS": "Xóa thành công",
+            "DELETE_ITEM_ERROR": "Xóa thất bại"
+        }
     }
 }

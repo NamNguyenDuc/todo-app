@@ -8,6 +8,12 @@ import {TodoListComponent} from './todo-list.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { AddComponent } from './add/add.component';
+import { EditComponent } from './edit/edit.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 const routes: Routes = [
     {
@@ -29,7 +35,9 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         TodoListComponent,
-        DetailComponent
+        DetailComponent,
+        AddComponent,
+        EditComponent
     ],
     exports: [
         TodoListComponent
@@ -42,6 +50,11 @@ const routes: Routes = [
         MatDialogModule,
         MatButtonModule,
         MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatCheckboxModule,
+        FormsModule,
     ]
 })
 export class TodoListModule {

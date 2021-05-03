@@ -16,6 +16,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {FormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 export function createTranslateLoader(http: HttpClient): any {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -24,7 +26,8 @@ export function createTranslateLoader(http: HttpClient): any {
 @NgModule({
     declarations: [
         AppComponent,
-        HeaderComponent
+        HeaderComponent,
+        DeleteDialogComponent
     ],
     imports: [
         BrowserModule,
@@ -46,6 +49,7 @@ export function createTranslateLoader(http: HttpClient): any {
         FormsModule,
         MatIconModule,
         MatButtonModule,
+        MatDialogModule,
     ],
     providers: [HttpClient],
     bootstrap: [AppComponent]

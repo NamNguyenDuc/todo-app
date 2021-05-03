@@ -24,7 +24,7 @@ export class AuthGuard implements CanActivate {
         // check token is valid
         try {
             this.restConnector.get(environment.CHECK_LOGIN).subscribe(res => {
-                if (res?.status) {
+                if (res?.success) {
                     this.dataService.changeStatusLogin(true);
                     this.dataService.changeUserProfile(res.user);
                     return true;

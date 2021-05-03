@@ -1,0 +1,45 @@
+.mat-typography {
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+    padding: 8px 20px;
+
+    .row-item {
+        padding: 8px 16px 0;
+        margin: 8px 0;
+        border-radius: 5px;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        .action-detail {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        &:hover {
+            background-color: #ebecf0;
+            .action-detail {
+                display: block;
+            }
+        }
+    }
+
+    .add-item {
+        display: flex;
+        align-items: center;
+        background-color: #ebecf0;
+        padding: 8px 16px;
+        margin: 8px 0;
+        border-radius: 5px;
+    }
+}
+
+::ng-deep{
+    .done {
+        .mat-checkbox-layout .mat-checkbox-label {
+            text-decoration: line-through;
+        }
+    }
+}

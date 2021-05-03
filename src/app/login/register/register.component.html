@@ -62,8 +62,9 @@
     </div>
 </mat-dialog-content>
 <mat-dialog-actions class="justify-content-end">
-    <button mat-button mat-dialog-close>{{ 'COMMON.CANCEL' | translate}}</button>
+    <button class="btn" mat-raised-button mat-dialog-close>{{ 'COMMON.CANCEL' | translate}}</button>
     <button
+        class="btn"
         mat-raised-button
         color="primary"
         (click)="submit()"
