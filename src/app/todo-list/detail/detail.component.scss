@@ -38,13 +38,6 @@
 }
 
 ::ng-deep{
-    .check-box {
-        .mat-checkbox-layout .mat-checkbox-label {
-            width: 100%;
-            word-break: break-all;
-        }
-    }
-
     .done {
         .mat-checkbox-layout .mat-checkbox-label {
             text-decoration: line-through;
