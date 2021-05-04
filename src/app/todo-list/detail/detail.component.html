@@ -10,7 +10,7 @@
                     <button class="btn btn-outline-secondary" mat-icon-button color="default" (click)="editItem(item)">
                         <mat-icon>create</mat-icon>
                     </button>
-                    <button class="btn btn-outline-secondary" mat-icon-button color="warn">
+                    <button class="btn btn-outline-secondary" mat-icon-button color="warn" (click)="deleteItem(item)">
                         <mat-icon>delete</mat-icon>
                     </button>
                 </div>
@@ -84,7 +84,7 @@
         <button
             *ngIf="!showFormAdd"
             class="btn ml-3"
-            mat-raised-button
+            mat-flat-button
             color="primary"
             (click)="addItem()"
         >

@@ -21,7 +21,7 @@ export class DeleteDialogComponent implements OnInit {
 
     onConfirm(): void {
         const deleted = this.data.infoDelete;
-        this.restConnect.delete(deleted.url, deleted.id, deleted?.hasAuth, deleted?.urlSelect).subscribe((resp: any) => {
+        this.restConnect.delete(deleted.url, deleted.id, deleted?.hasAuth, deleted?.urlSelect, deleted?.twoId).subscribe((resp: any) => {
             if (resp?.success) {
                 this.dialogRef.close(true);
             }

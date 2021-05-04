@@ -1,10 +1,11 @@
 import {ChangeDetectorRef, Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {environment} from '../../../environments/environment';
 import {RestConnector} from '../../service/rest.connector';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ToastrManager} from 'ng6-toastr-notifications';
 import {TranslateService} from '@ngx-translate/core';
+import {DeleteDialogComponent} from '../../delete-dialog/delete-dialog.component';
 
 @Component({
     selector: 'app-detail',
@@ -30,6 +31,7 @@ export class DetailComponent implements OnInit {
         private fb: FormBuilder,
         private toast: ToastrManager,
         private translate: TranslateService,
+        public dialog: MatDialog,
     ) {
     }
 
@@ -135,5 +137,26 @@ export class DetailComponent implements OnInit {
         this.showFormEdit = false;
         this.idEdit = null;
         this.formAdd.reset();
+    }
+
+    deleteItem(item: any): void {
+        const infoDelete = {
+            url: environment.EDIT_ITEM_DETAIL_TODO,
+            id: item.id,
+            hasAuth: true,
+            urlSelect: 'mock',
+            twoId: this.data.id
+        };
+        const dialogRef = this.dialog.open(DeleteDialogComponent, {width: '450px', data: {...item, infoDelete}, disableClose: true});
+        dialogRef.afterClosed().subscribe(res => {
+            if (res) {
+                this.getDetail();
+            }
+        });
+    }
+
+    onDismiss(): void {
+        // Close the dialog, return false
+        this.dialogRef.close();
     }
 }
